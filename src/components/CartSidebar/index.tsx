@@ -29,7 +29,7 @@ export function CartSidebar({ isOpen, handleClose }: CartSidebarProps) {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false);
 
-  const { cart, removeCartItem } = useCartContext();
+  const { cart, removeCartItem, clearCart } = useCartContext();
 
   const { errorNotify } = useNotify();
 
@@ -43,6 +43,8 @@ export function CartSidebar({ isOpen, handleClose }: CartSidebarProps) {
           quantity: item.quantity,
         })),
       });
+
+      clearCart();
 
       const { checkoutUrl } = response.data;
 

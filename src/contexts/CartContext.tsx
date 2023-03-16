@@ -19,6 +19,7 @@ interface CartContextData {
   cart: Item[];
   addCartItem: (newItem: AddCartItemParams) => void;
   removeCartItem: (priceId: string) => void;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext({} as CartContextData);
@@ -93,8 +94,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     });
   }
 
+  function clearCart() {
+    setCart([]);
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addCartItem, removeCartItem }}>
+    <CartContext.Provider value={{ cart, addCartItem, removeCartItem, clearCart }}>
       {children}
     </CartContext.Provider>
   );
