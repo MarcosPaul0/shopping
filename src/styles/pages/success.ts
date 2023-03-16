@@ -48,9 +48,18 @@ export const ImageContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  marginLeft: '-4rem',
 
-
+  boxShadow: '5px 5px 8px #000000',
   img: {
     objectFit: 'cover',
   }
 });
+
+
+export const ImagesContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: "center"
+})
